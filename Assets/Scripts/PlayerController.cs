@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveVal;
     public float speed = 10f;
     Rigidbody2D rbd;
-    PhotonView view;
+    PhotonView view; 
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour
         moveVal = value.Get<Vector2>();
     }
     void Movements(){
-        if(view.IsMine){
+        //only controller the character if it's mine
+        if(view.IsMine){ 
             Vector2 playerVelocity = new Vector2(moveVal.x*speed,moveVal.y*speed);
             rbd.velocity = playerVelocity;
             bool playerHasHorizontalSpeed = Mathf.Abs(rbd.velocity.x) > 0;

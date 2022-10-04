@@ -13,7 +13,10 @@ public class SpawnPlayers : MonoBehaviour
     public float maxY;
 
     private void Start() {
+        //Spawn the player at a random location within the bounding coordinates
         Vector2 randomPosition = new Vector2(Random.Range(minX,maxX),Random.Range(miny,maxY));
-        PhotonNetwork.Instantiate(playerPrefab.name,randomPosition,Quaternion.identity);
+
+        // Just like normal instantiate but this one make an instance on a multiplayer scene
+        PhotonNetwork.Instantiate(playerPrefab.name,randomPosition,Quaternion.identity);    
     }
 }
